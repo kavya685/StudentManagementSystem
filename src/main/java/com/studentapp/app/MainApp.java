@@ -14,9 +14,9 @@ public class MainApp {
         boolean status = dao.addStudent(s1);
 
         if (status) {
-            System.out.println("Student inserted successfully 🚀");
+            System.out.println("Student inserted successfully");
         } else {
-            System.out.println("Insert failed 💀");
+            System.out.println("Insert failed");
         }
     }
 }
