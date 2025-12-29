@@ -1,5 +1,4 @@
 package com.studentapp.util;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 
