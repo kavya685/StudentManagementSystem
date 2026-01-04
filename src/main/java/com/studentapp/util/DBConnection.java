@@ -6,7 +6,7 @@ public class DBConnection {
 
   private static final String URL = "jdbc:mysql://localhost:3306/student";
   private static final String USER = "root";
-  //replace password with your local DB password
+  private static final String PASSWORD = "radhe";
 
   private static Connection con;
 
@@ -14,8 +14,10 @@ public class DBConnection {
     // prevent object creation
   }
 
+  //getConnection is user defined
   public static Connection getConnection() {
     try {
+      //getConnection() & getConnection(URL, USER, PASSWORD) are different
       if (con == null || con.isClosed()) {
         con = DriverManager.getConnection(URL, USER, PASSWORD);
       }

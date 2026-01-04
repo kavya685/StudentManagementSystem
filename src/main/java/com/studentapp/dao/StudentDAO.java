@@ -1,3 +1,4 @@
+//DAO = Data Access Object
 package com.studentapp.dao;
 
 import com.studentapp.model.Student;
@@ -6,6 +7,8 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class StudentDAO {
+
+    //every time you perform some CRUD operation, you open and close the DB connection because DB connection is in a separate file, also just one change in that file will affect connections in all other files
 
     // Insert
     public boolean addStudent(Student student) {
@@ -28,7 +31,7 @@ public class StudentDAO {
     }
 
     // Fetch all
-    public ArrayList<Student> getAllStudents() {
+    public static ArrayList<Student> getAllStudents() {
         ArrayList<Student> list = new ArrayList<>();
         String sql = "SELECT * FROM student";
         try (Connection con = DBConnection.getConnection();
@@ -51,7 +54,7 @@ public class StudentDAO {
     }
 
     // Update
-    public boolean updateStudent(Student student) {
+    public static boolean updateStudent(Student student) {
         String sql = "UPDATE student SET name=?, age=?, course=? WHERE id=?";
         try (Connection con = DBConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -71,7 +74,7 @@ public class StudentDAO {
     }
 
     // Delete
-    public boolean deleteStudent(int id) {
+    public static boolean deleteStudent(int id) {
         String sql = "DELETE FROM student WHERE id=?";
         try (Connection con = DBConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
